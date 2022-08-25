@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class Sign_Page:
-    """"Locators"""
+    #Locators
     EMAIL_ID = (By.ID ,"ap_email")
     PASSWORD = (By.ID, "ap_password")
     CONTINUE_BUTTON = (By.XPATH, "//input[@class = 'a-button-input']")
@@ -16,28 +16,28 @@ class Sign_Page:
         self.user_name = user_name
         self.password = password
     
-    """"Enter Email Id"""
+    #Enter Email Id
     def enter_email_id(self):
         return self.driver.find_element(*Sign_Page.EMAIL_ID).send_keys(self.user_name)
 
-    """"Clck on continue button"""    
+    #Clck on continue button
     def click_continue_button(self):
         return self.driver.find_element(*Sign_Page.CONTINUE_BUTTON).click()
 
-    """"Enter password"""   
+    #Enter password
     def enter_password(self):
         return self.driver.find_element(*Sign_Page.PASSWORD).send_keys(self.password)
 
-    """"Click on sign button"""  
+    #Click on sign button
     def click_sign_button(self):
         return self.driver.find_element(*Sign_Page.SIGN_BUTTON).click()
 
-    """"Get error message for password"""
+    #Get error message for password
     def incorrect_password_popup(self):
         alert_message = self.driver.find_element(*Sign_Page.INCORRECT_ALERT_POPUP).text
         return alert_message
     
-    """"Close new tab"""
+    #Close new tabs
     def close_new_tab(self):
         self.driver.close()
         windows_open = self.driver.window_handles

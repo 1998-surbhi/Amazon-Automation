@@ -16,6 +16,9 @@ def pytest_addoption(parser):
     parser.addoption(
         "--driver_path", action="store", default="/home/cbnits/Downloads/chromedriver"       
     )
+    parser.addoption(
+        "--search_product", action="store", default="iphone"
+    )
 
 @pytest.fixture(scope="class")
 def invoke_driver(request):
@@ -45,6 +48,13 @@ def passing_username_password(request):
     if user_name or password :
         request.cls.user_name = user_name
         request.cls.password = password
+    yield
+
+@pytest.fixture(scope="class")
+def search_your_product(request):
+    search_product = request.config.getoption("search_product")
+    if search_product :
+        request.cls.search_product = search_product
     yield
 
 

@@ -22,7 +22,8 @@ class Test_Page(base_script.Base_Script):
         assert page_title == test_data.Test_Data.PAGE_TITLE
 
     def test_search(self):
-        home_page_driver = home_page.Home_Page(self.driver, test_data.Test_Data.IPHONE)
+        # home_page_driver = home_page.Home_Page(self.driver, test_data.Test_Data.IPHONE)
+        home_page_driver = home_page.Home_Page(self.driver, self.search_product)
         home_page_driver.Search_iphone()
         self.wait_search(home_page.Home_Page.SEARCH_INPUT)
         self.message_logging("Iphone Search Successfully")
@@ -44,8 +45,6 @@ class Test_Page(base_script.Base_Script):
         fourthiphone_page_driver.click_on_buy_now()
         self.message_logging("Successfully switch to the new tab and click on Buy Button")
 
-
-    """"It is correct without email validation"""
     def test_sign_page(self):
         sign_page_driver = sign_page.Sign_Page(self.driver, self.user_name, self.password)
         # sign_page_driver = sign_page.Sign_Page(self.driver)

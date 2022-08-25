@@ -6,7 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.keys import Keys
 
-@pytest.mark.usefixtures("invoke_driver", "passing_username_password")
+@pytest.mark.usefixtures("invoke_driver", "passing_username_password", "search_your_product")
 class Base_Script:
 
     def wait_search(self, path):
@@ -31,11 +31,11 @@ class Base_Script:
         except Exception as e:
             self.message_logging(e)    
 
-    """"Create Log file and store info"""
+    #Create Log file and store info
     def message_logging(self, message):
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
-        filehandler = logging.FileHandler("LOG/logfile.log")
+        filehandler = logging.FileHandler("/home/cbnits/Documents/Amazon_Assignment/LOG/logfile.log")
         logger.addHandler(filehandler)
         formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
         filehandler.setFormatter(formatter)
