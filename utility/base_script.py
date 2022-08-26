@@ -31,8 +31,10 @@ class Base_Script:
         except Exception as e:
             self.message_logging(e)    
 
-    #Create Log file and store info
     def message_logging(self, message):
+        """"
+        Create Log file and store info
+        """
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
         filehandler = logging.FileHandler("/home/cbnits/Documents/Amazon_Assignment/LOG/logfile.log")

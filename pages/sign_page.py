@@ -20,25 +20,35 @@ class Sign_Page:
     def enter_email_id(self):
         return self.driver.find_element(*Sign_Page.EMAIL_ID).send_keys(self.user_name)
 
-    #Clck on continue button
     def click_continue_button(self):
+        """"
+        Click on continue button
+        """
         return self.driver.find_element(*Sign_Page.CONTINUE_BUTTON).click()
 
-    #Enter password
     def enter_password(self):
+        """"
+        Enter password
+        """
         return self.driver.find_element(*Sign_Page.PASSWORD).send_keys(self.password)
 
-    #Click on sign button
     def click_sign_button(self):
+        """"
+        Click on sign button
+        """
         return self.driver.find_element(*Sign_Page.SIGN_BUTTON).click()
 
-    #Get error message for password
     def incorrect_password_popup(self):
+        """"
+        Get error message for password
+        """
         alert_message = self.driver.find_element(*Sign_Page.INCORRECT_ALERT_POPUP).text
         return alert_message
-    
-    #Close new tabs
+
     def close_new_tab(self):
+        """"
+        Close new tab
+        """
         self.driver.close()
         windows_open = self.driver.window_handles
         return self.driver.switch_to.window(windows_open[0])

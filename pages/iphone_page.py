@@ -9,13 +9,17 @@ class Iphone_Page:
     def __init__(self, driver):
         self.driver = driver
 
-    #Count total no. of iphone from Results
     def get_Results(self):
+        """"
+        Count total no. of iphone from Results
+        """
         count_results = self.driver.find_elements(*Iphone_Page.RESULTS)
         return (len(count_results))
 
-    #Click on 4th iphone
     def get_Results_Products_title(self):
+        """"
+        Click on 4th iphone
+        """
         product_title = []
         i = 0
         count_results = self.driver.find_elements(*Iphone_Page.RESULTS_PRODUCTS_TITLE)
